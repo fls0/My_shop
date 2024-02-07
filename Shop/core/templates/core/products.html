@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<head>
+    <title>Продукты категории {{ category.name }}</title>
+</head>
+<div class="cards">
+    {% for product in products_page %}
+    <div class="card">
+      <div class="card__top">
+        <!-- Изображение-ссылка товара -->
+        <a href="{% url 'core:product_detail' product.id %}" class="card__image">
+          <img
+            src="{{ product.image.url }}"
+            alt="{{ product.name }}"
+          />
+        </a>
+      </div>
+      <div class="card__bottom">
+        <div class="card__prices">
+          <div class="card__price card__price--common">Price: {{product.price}}</div>
+        </div>
+        <a href="#" class="card__title">
+            {{product.name}}
+        </a>
+        <button class="card__add">В корзину</button>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+<nav aria-label="Навигация по страницам сайта">
+    <ul class="pagination d-flex justify-content-center" >
+        {% if products_page.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ products_page.previous_page_number }}">
+                <span aria-hidden="true">←</span> Previous
+            </a>
+        </li>
+        {% endif %}
+        {% if products_page.has_next %}
+        <li class="page-item">
+            <a class="page-link " href="?page={{ products_page.next_page_number }}">
+                Next <span aria-hidden="true">→</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}

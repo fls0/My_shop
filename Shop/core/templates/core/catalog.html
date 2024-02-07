@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+
+
+{% block content %}
+<div class="cards">
+    {% for category in categories %}
+    <div class="card">
+        <div class="card__top">
+        <!-- Изображение-ссылка товара -->
+        <a href="{% url 'core:products' category.id %}" class="card__image">
+          <img
+            src="{{ category.image.url }}"
+            alt="{{category.name}}"
+          />
+        </a>
+         </div>
+        <div class="card__bottom">
+        <a href="#" class="card__title">
+            {{category.name}}
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
