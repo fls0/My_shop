@@ -1,8 +1,8 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-    <img src="{{product.image.url}}" class="img-fluid mx-auto" style="max-width: 300px;" alt="Изображение продукта">
     <div class="product-detail">
+        <img src="{{product.image.url}}" class="img-fluid mx-auto" style="max-width: 700px;" alt="Изображение продукта">
         <h1>{{ product.name }}</h1>
         <h2><a href="{% url 'core:catalog' %}">{{ product.category }}</a></h2>
         <p class="price">${{ product.price }}</p>

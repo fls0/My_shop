@@ -15,7 +15,7 @@ def catalog(request):
     return render(request, 'core/catalog.html', {'categories': categories})
 
 
-def products(request, catalog_id):
+def category_products(request, catalog_id):
     category = get_object_or_404(Category, id=catalog_id)
     products = Product.objects.filter(category=category)
     paginator = Paginator(products, 10)
@@ -23,6 +23,13 @@ def products(request, catalog_id):
     products_page = paginator.get_page(page_number)
     return render(request, 'core/products.html', {'category': category, 'products_page': products_page})
 
+
+def products(request):
+    products = Product.objects.all()
+    paginator = Paginator(products, 10)
+    page_number = request.GET.get('page')
+    products_page = paginator.get_page(page_number)
+    return render(request, 'core/products.html', {'products_page': products_page})
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
