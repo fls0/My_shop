@@ -1,0 +1,6 @@
+DB_NAME = 'Django_project'
+DB_USER = 'postgres'
+DB_PASSWORD = '1231'
+DB_HOST = '127.0.0.1'
+DB_PORT = '5432'
+SECRET_KEY = 'django-insecure-8y3qa=su8**b*-6%aim#61j$^9q_-+rw7xtsq4ed$@v^lbha2^'

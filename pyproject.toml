@@ -12,6 +12,8 @@ django = "^5.0.1"
 psycopg2 = "^2.9.9"
 datetime = "^5.4"
 pillow = "^10.2.0"
+pydantic = "^2.6.4"
+pydantic-settings = "^2.2.1"
 
 
 [build-system]
